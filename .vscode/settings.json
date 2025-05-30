@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/harley/Downloads/json-20250107.jar",
+        "/Users/harley/Documents/UKP Harley/Semester 6/PAT/json-20250107.jar"
+    ]
+}
