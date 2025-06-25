@@ -1,6 +1,9 @@
 package src;
 
 import javax.swing.*;
+
+import org.json.JSONObject;
+
 import java.awt.*;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -86,11 +89,11 @@ public class ForgotPasswordFrame extends JFrame {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             if (response.statusCode() == 200) {
-                JOptionPane.showMessageDialog(this, "Password reset instructions sent to your email.");
+                JOptionPane.showMessageDialog(this, new JSONObject(response.body()).getString("message"));
                 dispose();
                 new LoginFrame();
             } else {
-                JOptionPane.showMessageDialog(this, "Failed: " + response.body());
+                JOptionPane.showMessageDialog(this, "Failed: " + new JSONObject(response.body()).getString("message"));
             }
         } catch (Exception e) {
             e.printStackTrace();

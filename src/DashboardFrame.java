@@ -116,7 +116,7 @@ public class DashboardFrame extends JFrame {
                     HttpClient client = HttpClient.newHttpClient();
                     HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
                     if (response.statusCode() == 200) {
-                        JOptionPane.showMessageDialog(this, "Logout successful.");
+                        JOptionPane.showMessageDialog(this, "Logout successful");
                         Main.sessionCookie = null;
                         dispose();
                         new LoginFrame().setVisible(true);
@@ -125,7 +125,7 @@ public class DashboardFrame extends JFrame {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(this, "Error during logout: " + e.getMessage());
+                    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
                 }
         }
     }
